@@ -3,112 +3,356 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Unlock Content - Hotterbite</title>
+<title>Bloggirl Health Videos</title>
 
 <style>
+:root{
+    --red:#ff1a1a;
+    --glass:rgba(20,20,20,0.65);
+    --border:rgba(255,0,0,0.35);
+}
+
 body{
     margin:0;
-    font-family:Arial;
-    background:linear-gradient(180deg,#000,#140000,#000);
+    font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
+    background:linear-gradient(180deg,#000,#120000,#000);
     color:white;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
 }
 
-.box{
-    background:rgba(20,20,20,0.7);
-    border:1px solid rgba(255,0,0,0.4);
-    padding:30px;
+.glass{
+    background:var(--glass);
+    backdrop-filter:blur(12px);
+    border:1px solid var(--border);
     border-radius:12px;
-    text-align:center;
-    max-width:350px;
 }
 
-h2{
-    color:#ff1a1a;
+header{
+    max-width:1100px;
+    margin:15px auto;
+    padding:12px 16px;
+    display:flex;
+    align-items:center;
 }
 
-button{
-    background:#ff1a1a;
-    color:white;
+.logo{
+    font-size:22px;
+    font-weight:bold;
+    color:var(--red);
+    text-decoration:none;
+}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:15px;
+}
+
+.layout{
+    display:grid;
+    grid-template-columns: 1fr 300px;
+    gap:20px;
+}
+
+.main-video{
+    padding:15px;
+}
+
+.video-wrapper{
+    width:100%;
+    aspect-ratio:16/9;
+}
+
+.video-wrapper iframe{
+    width:100%;
+    height:100%;
+    border-radius:10px;
     border:none;
-    padding:12px 20px;
-    margin-top:15px;
+}
+
+.video-title{
+    margin-top:10px;
+    color:var(--red);
+    font-size:20px;
+}
+
+.download-btn{
+    margin-top:10px;
+    background:var(--red);
+    border:none;
+    padding:10px 15px;
+    color:white;
+    cursor:pointer;
     border-radius:6px;
-    font-size:16px;
+}
+
+.servers{
+    margin-top:10px;
+    display:none;
+}
+
+.servers a{
+    display:block;
+    background:#222;
+    margin:5px 0;
+    padding:10px;
+    color:white;
+    text-decoration:none;
+    border-radius:6px;
+}
+
+.video-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+    margin-top:20px;
+}
+
+.video-card{
+    padding:8px;
     cursor:pointer;
 }
 
-button:disabled{
-    background:gray;
-    cursor:not-allowed;
+.video-card iframe{
+    width:100%;
+    aspect-ratio:16/10;
+    border:none;
+    border-radius:8px;
+}
+
+.sidebar{
+    padding:15px;
+}
+
+.sidebar-title{
+    color:var(--red);
+    margin-bottom:10px;
+}
+
+.sidebar a{
+    display:block;
+    padding:8px;
+    color:white;
+    text-decoration:none;
+}
+
+.ad-box{
+    text-align:center;
+    margin:20px 0;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+}
+
+@media(max-width:900px){
+.layout{
+grid-template-columns:1fr;
+}
 }
 </style>
 
 <script>
+function playVideo(id,title){
 
-let unlocked=false;
+document.getElementById("mainPlayer").src =
+"https://www.youtube.com/embed/"+id;
 
-function unlockContent(){
+document.getElementById("mainTitle").innerText = title;
 
-    // Open Smartlink
-    window.open(
-    "https://www.effectivegatecpm.com/m00zp8fii4?key=39c6441473a2c8fc13b61ab8c45c2e05",
-    "_blank"
-    );
-
-    // Enable continue button
-    unlocked=true;
-
-    document.getElementById("continueBtn").disabled=false;
-
-    document.getElementById("status").innerHTML="Content Unlocked ✅";
+document.getElementById("servers").style.display="none";
 
 }
 
-function continuePage(){
+function showServers(){
 
-    if(unlocked){
-        window.location.href="index.html";
-    }
+document.getElementById("servers").style.display="block";
 
 }
-
 </script>
 
 </head>
 <body>
 
-<div class="box">
+<header class="glass">
 
-<h2>Hotterbite</h2>
+<a href="https://www.effectivegatecpm.com/m00zp8fii4?key=39c6441473a2c8fc13b61ab8c45c2e05"
+target="_blank"
+class="logo">
+Bloggirl
+</a>
 
-<p>Click the ad to unlock content</p>
+</header>
 
-<p id="status">Locked 🔒</p>
 
-<button onclick="unlockContent()">
-Unlock Content
+<div class="container">
+<div class="layout">
+
+<!-- MAIN CONTENT -->
+<div>
+
+<div class="main-video glass">
+
+<div class="video-wrapper">
+<iframe id="mainPlayer"
+src="https://www.youtube.com/embed/lcvUGs3xaDM"
+allowfullscreen>
+</iframe>
+</div>
+
+<div id="mainTitle" class="video-title">
+Main Featured Health Video
+</div>
+
+<button class="download-btn" onclick="showServers()">
+Download Now
 </button>
 
-<br>
+<div id="servers" class="servers">
 
-<button id="continueBtn"
-onclick="continuePage()"
-disabled>
-Continue to Website
-</button>
+<a href="https://www.effectivegatecpm.com/m00zp8fii4?key=39c6441473a2c8fc13b61ab8c45c2e05" target="_blank">
+Server 1
+</a>
+
+<a href="https://www.effectivegatecpm.com/m00zp8fii4?key=39c6441473a2c8fc13b61ab8c45c2e05" target="_blank">
+Server 2
+</a>
+
+<a href="https://www.effectivegatecpm.com/m00zp8fii4?key=39c6441473a2c8fc13b61ab8c45c2e05" target="_blank">
+Server 3
+</a>
+
+</div>
 
 </div>
 
 
-<!-- SOCIAL BAR AD -->
+<!-- Native Banner -->
+<div class="ad-box">
+
+<script async data-cfasync="false"
+src="https://pl28759044.effectivegatecpm.com/df9d138e54313fff3b5ca5ec28217ab3/invoke.js">
+</script>
+
+<div id="container-df9d138e54313fff3b5ca5ec28217ab3"></div>
+
+</div>
+
+
+<!-- 300x250 Banner -->
+<div class="ad-box">
+
+<script>
+atOptions = {
+'key' : 'b53ae2dc911817df7bb03ad4a3f9029b',
+'format' : 'iframe',
+'height' : 250,
+'width' : 300,
+'params' : {}
+};
+</script>
+
+<script src="https://www.highperformanceformat.com/b53ae2dc911817df7bb03ad4a3f9029b/invoke.js"></script>
+
+</div>
+
+
+<!-- VIDEO GRID -->
+<div class="video-grid">
+
+<div class="video-card glass"
+onclick="playVideo('4m8f8dLa_ig','Heart Health Tips')">
+
+<iframe src="https://www.youtube.com/embed/4m8f8dLa_ig"></iframe>
+
+<div>Heart Health Tips</div>
+
+</div>
+
+<div class="video-card glass"
+onclick="playVideo('XbknVmw-GtA','Morning Exercise')">
+
+<iframe src="https://www.youtube.com/embed/XbknVmw-GtA"></iframe>
+
+<div>Morning Exercise</div>
+
+</div>
+
+<div class="video-card glass"
+onclick="playVideo('nlgzL7B8ghM','Sleep Guide')">
+
+<iframe src="https://www.youtube.com/embed/nlgzL7B8ghM"></iframe>
+
+<div>Sleep Guide</div>
+
+</div>
+
+<div class="video-card glass"
+onclick="playVideo('aNub95OAKYQ','Healthy Habits')">
+
+<iframe src="https://www.youtube.com/embed/aNub95OAKYQ"></iframe>
+
+<div>Healthy Habits</div>
+
+</div>
+
+</div>
+
+
+<!-- 320x50 Banner -->
+<div class="ad-box">
+
+<script>
+atOptions = {
+'key' : 'e26855ac52a50891f1853937e43f53fd',
+'format' : 'iframe',
+'height' : 50,
+'width' : 320,
+'params' : {}
+};
+</script>
+
+<script src="https://www.highperformanceformat.com/e26855ac52a50891f1853937e43f53fd/invoke.js"></script>
+
+</div>
+
+</div>
+
+
+<!-- SIDEBAR -->
+<div class="sidebar glass">
+
+<div class="sidebar-title">Categories</div>
+
+<a href="https://www.effectivegatecpm.com/m00zp8fii4?key=39c6441473a2c8fc13b61ab8c45c2e05" target="_blank">
+Fitness
+</a>
+
+<a href="https://www.effectivegatecpm.com/m00zp8fii4?key=39c6441473a2c8fc13b61ab8c45c2e05" target="_blank">
+Nutrition
+</a>
+
+<a href="https://www.effectivegatecpm.com/m00zp8fii4?key=39c6441473a2c8fc13b61ab8c45c2e05" target="_blank">
+Sleep
+</a>
+
+</div>
+
+</div>
+</div>
+
+
+<footer class="glass">
+Bloggirl Health Videos
+</footer>
+
+
+<!-- Social Bar -->
 <script src="https://pl28759043.effectivegatecpm.com/c8/93/6c/c8936c1927508a972be78cfc7855e3cb.js"></script>
 
-<!-- POPUNDER AD -->
+<!-- Popunder -->
 <script src="https://pl28759039.effectivegatecpm.com/ba/fe/6c/bafe6c7c50872989d5a238f796aad1ed.js"></script>
+
 
 </body>
 </html>
