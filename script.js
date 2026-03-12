@@ -1,22 +1,45 @@
-const params = new URLSearchParams(window.location.search)
+function publishPost(){
 
-let category = params.get("cat") || "all"
+let title=document.getElementById("title").value
+let image=document.getElementById("image").value
+let content=document.getElementById("content").value
+let category=document.getElementById("category").value
 
-fetch("posts.json")
+let posts=JSON.parse(localStorage.getItem("posts"))||[]
 
-.then(res => res.json())
+posts.unshift({
 
-.then(posts => {
+title:title,
+image:image,
+content:content,
+category:category,
+time:new Date().toLocaleString()
 
-let slider = document.getElementById("slider")
+})
 
-if(!slider) return
+localStorage.setItem("posts",JSON.stringify(posts))
 
-posts.forEach(post => {
+alert("Post Published")
 
-if(category === "all" || post.category === category){
+}
 
-slider.innerHTML += `
+/* reader */
+
+const params=new URLSearchParams(window.location.search)
+
+let category=params.get("cat")||"all"
+
+let posts=JSON.parse(localStorage.getItem("posts"))||[]
+
+let slider=document.getElementById("slider")
+
+if(slider){
+
+posts.forEach(post=>{
+
+if(category=="all"||post.category==category){
+
+slider.innerHTML+=`
 
 <div class="post">
 
@@ -42,4 +65,4 @@ slider.innerHTML += `
 
 })
 
-})
+}
