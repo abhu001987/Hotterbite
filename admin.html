@@ -1,41 +1,63 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>Admin Panel</title>
+
 <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
-<h2>Create Post</h2>
+<h2>BlogGirl Admin Panel</h2>
 
-<input id="title" placeholder="Title">
+<p>Copy category links and share.</p>
 
-<input id="image" placeholder="Image URL">
+<div class="link-box">
+Economy  
+<input value="http://bloggirl.online/?cat=economy">
+</div>
 
-<textarea id="content" placeholder="Content"></textarea>
+<div class="link-box">
+Environment  
+<input value="http://bloggirl.online/?cat=environment">
+</div>
 
-<select id="category">
+<div class="link-box">
+Editorial  
+<input value="http://bloggirl.online/?cat=editorial">
+</div>
 
-<option>Daily</option>
-<option>Economy</option>
-<option>Editorial</option>
-<option>Environment</option>
-<option>Governance</option>
-<option>History</option>
-<option>IR</option>
-<option>Sansad</option>
-<option>Schemes</option>
-<option>Science</option>
-<option>Social</option>
+<div class="link-box">
+Governance  
+<input value="http://bloggirl.online/?cat=governance">
+</div>
 
-</select>
+<div class="link-box">
+History  
+<input value="http://bloggirl.online/?cat=history">
+</div>
 
-<button onclick="publishPost()">Publish</button>
+<div class="link-box">
+IR  
+<input value="http://bloggirl.online/?cat=ir">
+</div>
 
-<script src="script.js"></script>
+<div class="link-box">
+Science  
+<input value="http://bloggirl.online/?cat=science">
+</div>
+
+<div class="link-box">
+Social  
+<input value="http://bloggirl.online/?cat=social">
+</div>
 
 </body>
+
 </html>
