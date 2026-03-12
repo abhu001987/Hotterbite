@@ -12,51 +12,53 @@
 
 </head>
 
-<body>
+<body class="admin">
 
-<h2>BlogGirl Admin Panel</h2>
+<h1>Create Post</h1>
 
-<p>Copy category links and share.</p>
+<input id="title" placeholder="Post Title">
 
-<div class="link-box">
-Economy  
-<input value="http://bloggirl.online/?cat=economy">
+<input id="image" placeholder="Image URL">
+
+<textarea id="content" placeholder="Post Content"></textarea>
+
+<select id="category">
+
+<option value="daily">Daily</option>
+<option value="economy">Economy</option>
+<option value="editorial">Editorial</option>
+<option value="environment">Environment</option>
+<option value="governance">Governance</option>
+<option value="history">History</option>
+<option value="ir">I.R</option>
+<option value="sansad">Sansad TV</option>
+<option value="schemes">Schemes</option>
+<option value="science">Science</option>
+<option value="social">Social</option>
+
+</select>
+
+<button onclick="publishPost()">Publish</button>
+
+<h2>Category Links</h2>
+
+<div class="links">
+
+<a href="http://bloggirl.online/?cat=daily">Daily</a>
+<a href="http://bloggirl.online/?cat=economy">Economy</a>
+<a href="http://bloggirl.online/?cat=editorial">Editorial</a>
+<a href="http://bloggirl.online/?cat=environment">Environment</a>
+<a href="http://bloggirl.online/?cat=governance">Governance</a>
+<a href="http://bloggirl.online/?cat=history">History</a>
+<a href="http://bloggirl.online/?cat=ir">I.R</a>
+<a href="http://bloggirl.online/?cat=sansad">Sansad TV</a>
+<a href="http://bloggirl.online/?cat=schemes">Schemes</a>
+<a href="http://bloggirl.online/?cat=science">Science</a>
+<a href="http://bloggirl.online/?cat=social">Social</a>
+
 </div>
 
-<div class="link-box">
-Environment  
-<input value="http://bloggirl.online/?cat=environment">
-</div>
-
-<div class="link-box">
-Editorial  
-<input value="http://bloggirl.online/?cat=editorial">
-</div>
-
-<div class="link-box">
-Governance  
-<input value="http://bloggirl.online/?cat=governance">
-</div>
-
-<div class="link-box">
-History  
-<input value="http://bloggirl.online/?cat=history">
-</div>
-
-<div class="link-box">
-IR  
-<input value="http://bloggirl.online/?cat=ir">
-</div>
-
-<div class="link-box">
-Science  
-<input value="http://bloggirl.online/?cat=science">
-</div>
-
-<div class="link-box">
-Social  
-<input value="http://bloggirl.online/?cat=social">
-</div>
+<script src="script.js"></script>
 
 </body>
 
