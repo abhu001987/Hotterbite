@@ -1,342 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hotterbite Health Videos</title>
-
-<style>
-
-:root{
---red:#ff1a1a;
---glass:rgba(20,20,20,0.65);
---border:rgba(255,0,0,0.35);
-}
-
-body{
-margin:0;
-font-family:system-ui;
-background:linear-gradient(#000,#120000,#000);
-color:white;
-}
-
-.glass{
-background:var(--glass);
-backdrop-filter:blur(12px);
-border:1px solid var(--border);
-border-radius:12px;
-}
-
-header{
-max-width:1100px;
-margin:15px auto;
-padding:12px 16px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-
-.logo{
-font-size:22px;
-color:var(--red);
-text-decoration:none;
-font-weight:bold;
-}
-
-.menu-btn{
-font-size:22px;
-cursor:pointer;
-color:var(--red);
-}
-
-.container{
-max-width:1100px;
-margin:auto;
-padding:15px;
-}
-
-.layout{
-display:grid;
-grid-template-columns:1fr 300px;
-gap:20px;
-}
-
-.video-wrapper{
-aspect-ratio:16/9;
-}
-
-iframe{
-width:100%;
-height:100%;
-border:none;
-border-radius:10px;
-}
-
-.video-card{
-padding:12px;
-margin-bottom:15px;
-}
-
-.video-title{
-color:var(--red);
-margin-top:10px;
-}
-
-.sidebar{
-padding:15px;
-}
-
-.category-list a{
-display:block;
-padding:8px;
-text-decoration:none;
-color:white;
-}
-
-.category-btn{
-position:fixed;
-right:15px;
-top:50%;
-transform:translateY(-50%);
-background:var(--red);
-padding:14px;
-border-radius:50%;
-cursor:pointer;
-z-index:999;
-}
-
-.category-panel{
-position:fixed;
-right:-260px;
-top:50%;
-transform:translateY(-50%);
-width:250px;
-padding:15px;
-transition:.3s;
-}
-
-.category-panel.show{
-right:15px;
-}
-
-.ad-box{
-text-align:center;
-margin:20px 0;
-}
-
-footer{
-text-align:center;
-padding:15px;
-margin:20px;
-}
-
-@media(max-width:900px){
-
-.layout{
-grid-template-columns:1fr;
-}
-
-}
-
-</style>
-
-<script>
-
-function toggleCategory(){
-document.getElementById("categoryPanel").classList.toggle("show");
-}
-
-</script>
-
+<title>News Feed</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<!-- SMARTLINK LOGO -->
-<header class="glass">
+<div class="header">
 
-<div class="menu-btn">☰</div>
-
-<a href="https://carpenteroutwitindictment.com/m00zp8fii4?key=39c6441473a2c8fc13b61ab8c45c2e05"
-target="_blank"
-class="logo">
-Hotterbite
+<a href="https://en.wikipedia.org/wiki/India" class="back">
+← Back
 </a>
 
-</header>
+<h2>News Feed</h2>
 
+<div class="categories">
 
-<!-- FLOAT CATEGORY BUTTON -->
+<button onclick="loadPosts('All')">All</button>
+<button onclick="loadPosts('Daily')">Daily</button>
+<button onclick="loadPosts('Economy')">Economy</button>
+<button onclick="loadPosts('Editorial')">Editorial</button>
+<button onclick="loadPosts('Environment')">Environment</button>
+<button onclick="loadPosts('Governance')">Governance</button>
+<button onclick="loadPosts('History')">History</button>
+<button onclick="loadPosts('IR')">I.R</button>
+<button onclick="loadPosts('Sansad')">Sansad TV</button>
+<button onclick="loadPosts('Schemes')">Schemes</button>
+<button onclick="loadPosts('Science')">Science</button>
+<button onclick="loadPosts('Social')">Social</button>
 
-<div class="category-btn" onclick="toggleCategory()">☰</div>
-
-<div id="categoryPanel" class="category-panel glass">
-
-<h3>Categories</h3>
-
-<div class="category-list">
-<a href="#">Fitness</a>
-<a href="#">Nutrition</a>
-<a href="#">Sleep</a>
-<a href="#">Mental Health</a>
-</div>
-
-</div>
-
-
-<div class="container">
-
-<div class="layout">
-
-
-<!-- MAIN CONTENT -->
-<div>
-
-
-<!-- MAIN VIDEO -->
-
-<div class="video-card glass">
-
-<div class="video-wrapper">
-
-<iframe src="https://www.youtube.com/embed/P4L6pN1SfUQ" allowfullscreen></iframe>
-
-</div>
-
-<div class="video-title">
-Main Health Video
 </div>
 
 </div>
 
+<div id="posts"></div>
 
-<!-- NATIVE BANNER AD -->
-
-<div class="ad-box">
-
-<script async data-cfasync="false"
-src="https://carpenteroutwitindictment.com/df9d138e54313fff3b5ca5ec28217ab3/invoke.js">
-</script>
-
-<div id="container-df9d138e54313fff3b5ca5ec28217ab3"></div>
-
-</div>
-
-
-<!-- 300x250 AD -->
-
-<div class="ad-box">
+<script src="script.js"></script>
 
 <script>
-atOptions = {
-'key' : 'b53ae2dc911817df7bb03ad4a3f9029b',
-'format' : 'iframe',
-'height' : 250,
-'width' : 300,
-'params' : {}
-};
+loadPosts("All")
 </script>
-
-<script src="https://carpenteroutwitindictment.com/b53ae2dc911817df7bb03ad4a3f9029b/invoke.js"></script>
-
-</div>
-
-
-<!-- VIDEO GRID -->
-
-<div class="video-card glass">
-
-<div class="video-wrapper">
-
-<iframe src="https://www.youtube.com/embed/sixEmrcei2M"></iframe>
-
-</div>
-
-<div class="video-title">
-Morning Exercise
-</div>
-
-</div>
-
-
-<!-- 320x50 AD -->
-
-<div class="ad-box">
-
-<script>
-atOptions = {
-'key' : 'e26855ac52a50891f1853937e43f53fd',
-'format' : 'iframe',
-'height' : 50,
-'width' : 320,
-'params' : {}
-};
-</script>
-
-<script src="https://carpenteroutwitindictment.com/e26855ac52a50891f1853937e43f53fd/invoke.js"></script>
-
-</div>
-
-
-</div>
-
-
-<!-- SIDEBAR -->
-<div class="sidebar glass">
-
-<h3>Categories</h3>
-
-<div class="category-list">
-
-<a href="#">Fitness</a>
-<a href="#">Nutrition</a>
-<a href="#">Sleep</a>
-
-</div>
-
-
-<!-- SIDEBAR 300x250 AD -->
-
-<div class="ad-box">
-
-<script>
-atOptions = {
-'key' : 'b53ae2dc911817df7bb03ad4a3f9029b',
-'format' : 'iframe',
-'height' : 250,
-'width' : 300,
-'params' : {}
-};
-</script>
-
-<script src="https://carpenteroutwitindictment.com/b53ae2dc911817df7bb03ad4a3f9029b/invoke.js"></script>
-
-</div>
-
-
-</div>
-
-
-</div>
-</div>
-
-
-<footer class="glass">
-
-Hotterbite © 2026
-
-</footer>
-
-
-
-<!-- SOCIAL BAR AD -->
-
-<script src="https://carpenteroutwitindictment.com/c8/93/6c/c8936c1927508a972be78cfc7855e3cb.js"></script>
-
-
-<!-- POPUNDER AD -->
-
-<script src="https://carpenteroutwitindictment.com/ba/fe/6c/bafe6c7c50872989d5a238f796aad1ed.js"></script>
-
 
 </body>
 </html>
