@@ -9,7 +9,7 @@ font-family:Arial, Helvetica, sans-serif;
 
 body{
 background:#f4f4f4;
-overflow-x:hidden;
+overflow:hidden;
 }
 
 /* POSTS CONTAINER */
@@ -19,6 +19,7 @@ display:flex;
 overflow-x:auto;
 scroll-snap-type:x mandatory;
 height:100vh;
+width:100vw;
 }
 
 /* POST CARD */
@@ -40,61 +41,56 @@ height:45vh;
 object-fit:cover;
 }
 
-/* CONTENT AREA */
+/* CONTENT */
 
 .content{
 flex:1;
 overflow-y:auto;
 padding:20px;
-padding-bottom:80px; /* prevents text hiding behind footer */
 }
 
 /* TITLE */
 
 .content h2{
-font-size:26px;
+font-size:28px;
+font-weight:700;
 margin-bottom:15px;
-line-height:1.3;
 }
 
 /* TEXT */
 
 .content p{
-font-size:16px;
+font-size:17px;
 line-height:1.7;
 color:#333;
 }
 
-/* FOOTER (CATEGORY + DATE) */
+/* FOOTER */
 
 .post-footer{
-position:sticky;
-bottom:0;
 display:flex;
 justify-content:space-between;
 align-items:center;
 padding:15px 20px;
 border-top:1px solid #eee;
 background:white;
-z-index:5;
 }
 
-/* CATEGORY BADGE */
+/* CATEGORY */
 
 .category-badge{
 background:#1976d2;
 color:white;
-padding:6px 14px;
+padding:6px 16px;
 border-radius:20px;
-font-size:12px;
+font-size:13px;
 font-weight:600;
-text-transform:capitalize;
 }
 
 /* DATE */
 
 .post-date{
-font-size:12px;
+font-size:13px;
 color:#777;
 }
 
@@ -117,7 +113,7 @@ cursor:pointer;
 z-index:10;
 }
 
-/* MOBILE FIX */
+/* MOBILE */
 
 @media(max-width:768px){
 
@@ -126,11 +122,11 @@ height:40vh;
 }
 
 .content h2{
-font-size:22px;
+font-size:24px;
 }
 
 .content p{
-font-size:15px;
+font-size:16px;
 }
 
 }
