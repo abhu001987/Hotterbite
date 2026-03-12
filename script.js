@@ -2,7 +2,7 @@ const params = new URLSearchParams(window.location.search)
 
 let category = params.get("cat") || "all"
 
-fetch("https://api.github.com/repos/YOUR_GITHUB_USERNAME/YOUR_REPO/contents/posts")
+fetch("https://api.github.com/repos/abhu001987/Hotterbite/contents/posts")
 
 .then(res => res.json())
 
