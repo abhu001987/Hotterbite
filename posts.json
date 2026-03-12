@@ -1,0 +1,28 @@
+[
+{
+"id":1,
+"title":"Globalisation and India",
+"image":"https://images.unsplash.com/photo-1507679799987-c73779587ccf",
+"content":"Globalization has shown resilience through financial crises, pandemics and geopolitical tensions. India's share in global economy continues to grow steadily.",
+"category":"economy",
+"time":"2 days ago"
+},
+
+{
+"id":2,
+"title":"Climate Action Mission",
+"image":"https://images.unsplash.com/photo-1509395176047-4a66953fd231",
+"content":"India is rapidly expanding solar and wind energy capacity as part of its climate commitments.",
+"category":"environment",
+"time":"6 hours ago"
+},
+
+{
+"id":3,
+"title":"India Foreign Policy",
+"image":"https://images.unsplash.com/photo-1495567720989-cebdbdd97913",
+"content":"India continues strengthening diplomatic relations through strategic partnerships across the world.",
+"category":"ir",
+"time":"1 day ago"
+}
+]
