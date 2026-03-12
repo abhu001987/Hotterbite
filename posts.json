@@ -1,8 +1,19 @@
+[
 {
 "id":1,
-"title":"AI and National Security",
-"image":"image.jpg",
+"title":"Globalisation and India",
+"image":"https://images.unsplash.com/photo-1523966211575-eb4a01e7dd51",
+"content":"Globalization has shown resilience through financial crises...",
+"category":"economy",
+"time":"2 days ago"
+},
+
+{
+"id":2,
+"title":"AI in National Security",
+"image":"https://images.unsplash.com/photo-1507679799987-c73779587ccf",
 "content":"AI is transforming defence strategy...",
 "category":"editorial",
-"time":"2 hours ago"
+"time":"5 hours ago"
 }
+]
