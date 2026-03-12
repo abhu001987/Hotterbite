@@ -22,7 +22,13 @@ const card = document.createElement("div");
 card.className = "post";
 
 card.innerHTML = `
+<div class="image-container">
+
 <img src="${post.image}">
+
+<div class="back-btn" onclick="goBack()">←</div>
+
+</div>
 
 <div class="post-meta">
 <span class="category-badge">${post.category}</span>
@@ -43,5 +49,5 @@ container.appendChild(card);
 
 // BACK BUTTON FUNCTION
 function goBack(){
-window.location.href = "https://myaffiliatepage.com/termandconditions";
+window.location.href="https://myaffiliatepage.com/termandconditions";
 }
