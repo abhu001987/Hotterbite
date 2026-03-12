@@ -1,19 +1,8 @@
-[
 {
 "id":1,
-"title":"Globalisation and India",
-"image":"https://images.unsplash.com/photo-1523966211575-eb4a01e7dd51",
-"content":"Globalization has shown resilience through financial crises and geopolitical tensions. India's share of the global economy continues to grow.",
-"category":"economy",
-"time":"2 days ago"
-},
-
-{
-"id":2,
-"title":"New Economic Policy",
-"image":"https://images.unsplash.com/photo-1507679799987-c73779587ccf",
-"content":"India's economy is growing rapidly with strong infrastructure investment and global trade expansion.",
-"category":"economy",
-"time":"5 hours ago"
+"title":"AI and National Security",
+"image":"image.jpg",
+"content":"AI is transforming defence strategy...",
+"category":"editorial",
+"time":"2 hours ago"
 }
-]
