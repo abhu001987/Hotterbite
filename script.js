@@ -40,3 +40,8 @@ container.appendChild(card);
 });
 
 });
+
+// BACK BUTTON FUNCTION
+function goBack(){
+window.location.href = "https://myaffiliatepage.com/termandconditions";
+}
