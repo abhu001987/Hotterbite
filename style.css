@@ -46,6 +46,7 @@ object-fit:cover;
 flex:1;
 overflow-y:auto;
 padding:20px;
+padding-bottom:80px; /* prevents text hiding behind footer */
 }
 
 /* TITLE */
@@ -64,15 +65,18 @@ line-height:1.7;
 color:#333;
 }
 
-/* FOOTER */
+/* FOOTER (CATEGORY + DATE) */
 
 .post-footer{
+position:sticky;
+bottom:0;
 display:flex;
 justify-content:space-between;
 align-items:center;
 padding:15px 20px;
 border-top:1px solid #eee;
 background:white;
+z-index:5;
 }
 
 /* CATEGORY BADGE */
@@ -117,16 +121,16 @@ z-index:10;
 
 @media(max-width:768px){
 
+.post img{
+height:40vh;
+}
+
 .content h2{
 font-size:22px;
 }
 
 .content p{
 font-size:15px;
-}
-
-.post img{
-height:40vh;
 }
 
 }
