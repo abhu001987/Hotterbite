@@ -1,43 +1,41 @@
-// read category from URL
-const params = new URLSearchParams(window.location.search);
-const selectedCategory = params.get("cat");
+const urlParams = new URLSearchParams(window.location.search);
+const category = urlParams.get("cat");
 
-// fetch JSON posts
 fetch("posts.json")
-.then(response => response.json())
-.then(posts => {
+.then(res => res.json())
+.then(data => {
 
 const container = document.getElementById("posts");
-
-// clear container
 container.innerHTML = "";
 
-// loop posts
-posts.forEach(post => {
+// filter posts
+let filteredPosts = data;
 
-    // if category filter exists and does not match → skip
-    if(selectedCategory && post.category !== selectedCategory){
-        return;
-    }
+if(category){
+filteredPosts = data.filter(post => post.category === category);
+}
 
-    const card = document.createElement("div");
-    card.className = "post";
+// render posts
+filteredPosts.forEach(post => {
 
-    card.innerHTML = `
-        <img src="${post.image}">
+const card = document.createElement("div");
+card.className = "post";
 
-        <div class="post-meta">
-            <span class="category-badge">${post.category}</span>
-            <span class="post-date">${post.time}</span>
-        </div>
+card.innerHTML = `
+<img src="${post.image}">
 
-        <div class="content">
-            <h2>${post.title}</h2>
-            <p>${post.content}</p>
-        </div>
-    `;
+<div class="post-meta">
+<span class="category-badge">${post.category}</span>
+<span class="post-date">${post.time}</span>
+</div>
 
-    container.appendChild(card);
+<div class="content">
+<h2>${post.title}</h2>
+<p>${post.content}</p>
+</div>
+`;
+
+container.appendChild(card);
 
 });
 
