@@ -1,68 +1,31 @@
-const params = new URLSearchParams(window.location.search)
-
-let category = params.get("cat") || "all"
-
-fetch("https://api.github.com/repos/abhu001987/Hotterbite/contents/posts")
-
+fetch("posts.json")
 .then(res => res.json())
+.then(posts => {
 
-.then(files => {
+const container = document.getElementById("posts")
 
-let slider = document.getElementById("slider")
+posts.forEach(post => {
 
-files.reverse().forEach(file => {
+const card = document.createElement("div")
+card.className = "post"
 
-fetch(file.download_url)
+card.innerHTML = `
 
-.then(res => res.text())
+<img src="${post.image}">
 
-.then(data => {
-
-let content = data.split("---")[2]
-
-let title = data.match(/title:\s*(.*)/)[1]
-let cat = data.match(/category:\s*(.*)/)[1]
-let image = data.match(/image:\s*(.*)/)[1]
-
-let date = file.name.split("-").slice(0,3).join("-")
-
-if(category === "all" || cat === category){
-
-slider.innerHTML += `
-
-<div class="post">
-
-<div style="position:relative">
-
-<img src="${image}">
-
-<a href="https://en.wikipedia.org/wiki/India" class="back-btn">←</a>
-
+<div class="post-meta">
+<span class="category-badge">${post.category}</span>
+<span class="post-date">${post.time}</span>
 </div>
 
 <div class="content">
-
-<div class="title">${title}</div>
-
-<div class="text">${content}</div>
-
-</div>
-
-<div class="post-footer">
-
-<div class="category-badge">${cat}</div>
-
-<div class="post-date">${date}</div>
-
-</div>
-
+<h2>${post.title}</h2>
+<p>${post.content}</p>
 </div>
 
 `
 
-}
-
-})
+container.appendChild(card)
 
 })
 
