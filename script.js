@@ -1,65 +1,38 @@
-function publishPost(){
+const params = new URLSearchParams(window.location.search)
 
-let title = document.getElementById("title").value
-let image = document.getElementById("image").value
-let content = document.getElementById("content").value
-let category = document.getElementById("category").value
+let category = params.get("cat") || "all"
 
-let post = {
+fetch("posts.json")
 
-title:title,
-image:image,
-content:content,
-category:category,
-time: new Date().toLocaleString()
+.then(res => res.json())
 
-}
+.then(posts => {
 
-let posts = JSON.parse(localStorage.getItem("posts")) || []
+let slider = document.getElementById("slider")
 
-posts.unshift(post)
-
-localStorage.setItem("posts", JSON.stringify(posts))
-
-alert("Post Published")
-
-document.getElementById("title").value=""
-document.getElementById("image").value=""
-document.getElementById("content").value=""
-
-}
-
-function loadPosts(category){
-
-let posts = JSON.parse(localStorage.getItem("posts")) || []
-
-let container = document.getElementById("posts")
-
-if(!container) return
-
-container.innerHTML=""
+if(!slider) return
 
 posts.forEach(post => {
 
-if(category=="All" || post.category==category){
+if(category === "all" || post.category === category){
 
-container.innerHTML += `
+slider.innerHTML += `
 
 <div class="post">
 
 <img src="${post.image}">
 
-<div>
+<a href="https://en.wikipedia.org/wiki/India" class="back-btn">←</a>
 
-<span class="category">${post.category}</span>
+<div class="content">
 
-<span class="time">${post.time}</span>
+<div class="time">${post.time}</div>
+
+<div class="title">${post.title}</div>
+
+<div class="text">${post.content}</div>
 
 </div>
-
-<h3>${post.title}</h3>
-
-<p>${post.content}</p>
 
 </div>
 
@@ -69,4 +42,4 @@ container.innerHTML += `
 
 })
 
-}
+})
