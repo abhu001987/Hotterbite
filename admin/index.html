@@ -24,6 +24,11 @@ if (window.netlifyIdentity) {
     }
   });
 
+  // 🔑 THIS FIXES PASSWORD RECOVERY
+  window.netlifyIdentity.on("recover", () => {
+    document.location.href = "/admin/";
+  });
+
   window.netlifyIdentity.init();
 }
 </script>
