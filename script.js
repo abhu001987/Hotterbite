@@ -1,59 +1,44 @@
-function publishPost(){
+const params = new URLSearchParams(window.location.search)
 
-let title=document.getElementById("title").value
-let image=document.getElementById("image").value
-let content=document.getElementById("content").value
-let category=document.getElementById("category").value
+let category = params.get("cat") || "all"
 
-let posts=JSON.parse(localStorage.getItem("posts"))||[]
+fetch("https://api.github.com/repos/YOUR_GITHUB_USERNAME/YOUR_REPO/contents/posts")
 
-posts.unshift({
+.then(res => res.json())
 
-title:title,
-image:image,
-content:content,
-category:category,
-time:new Date().toLocaleString()
+.then(files => {
 
-})
+let slider = document.getElementById("slider")
 
-localStorage.setItem("posts",JSON.stringify(posts))
+files.forEach(file => {
 
-alert("Post Published")
+fetch(file.download_url)
 
-}
+.then(res => res.text())
 
-/* reader */
+.then(data => {
 
-const params=new URLSearchParams(window.location.search)
+let content = data.split("---")[2]
 
-let category=params.get("cat")||"all"
+let title = data.match(/title:\s*(.*)/)[1]
+let cat = data.match(/category:\s*(.*)/)[1]
+let image = data.match(/image:\s*(.*)/)[1]
 
-let posts=JSON.parse(localStorage.getItem("posts"))||[]
+if(category === "all" || cat === category){
 
-let slider=document.getElementById("slider")
-
-if(slider){
-
-posts.forEach(post=>{
-
-if(category=="all"||post.category==category){
-
-slider.innerHTML+=`
+slider.innerHTML += `
 
 <div class="post">
 
-<img src="${post.image}">
+<img src="${image}">
 
 <a href="https://en.wikipedia.org/wiki/India" class="back-btn">←</a>
 
 <div class="content">
 
-<div class="time">${post.time}</div>
+<div class="title">${title}</div>
 
-<div class="title">${post.title}</div>
-
-<div class="text">${post.content}</div>
+<div class="text">${content}</div>
 
 </div>
 
@@ -65,4 +50,6 @@ slider.innerHTML+=`
 
 })
 
-}
+})
+
+})
